@@ -1,6 +1,7 @@
 package coursework.models;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Boss extends Staff {
     private BigDecimal bonusSalary;
@@ -23,4 +24,15 @@ public class Boss extends Staff {
                 "bonusSalary=" + bonusSalary +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Boss boss = (Boss) o;
+        return Objects.equals(bonusSalary, boss.bonusSalary);
+    }
+
+
 }

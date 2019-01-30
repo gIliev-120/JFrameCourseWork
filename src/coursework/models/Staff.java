@@ -1,6 +1,7 @@
 package coursework.models;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Staff {
     private String firstName;
@@ -52,4 +53,15 @@ public class Staff {
                 ", salary=" + salary +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Staff staff = (Staff) o;
+        return Objects.equals(firstName, staff.firstName) &&
+                Objects.equals(lastName, staff.lastName) &&
+                Objects.equals(salary, staff.salary);
+    }
+
 }
