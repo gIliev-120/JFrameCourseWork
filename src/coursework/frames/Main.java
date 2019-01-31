@@ -10,18 +10,19 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
-    static ArrayList<Staff> staffList = new ArrayList<Staff>();
+    static ArrayList<String> staffList = new ArrayList<String>();
     public static void main(String[] args) {
         JFrame frame = new JFrame("CourseWork");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(createForm());
+        frame.setContentPane(new CreateForm().initalizeForm());
         frame.pack();
         frame.setVisible(true);
     }
 
-    public static Container createForm(){
+   /* public static Container createForm(){
 
         JPanel createFormPanel = new JPanel();
         createFormPanel.setLayout(new GridLayout(7, 2, -1, -1));
@@ -107,7 +108,7 @@ public class Main {
                 if(staffList.contains(currentEmployee)){
                     resultField.setText("Employee alredy exists");
                 }else{
-                    staffList.add(currentEmployee);
+                    staffList.add(currentEmployee.getLastName() + " - " + currentEmployee.getClass().getSimpleName());
                     resultField.setText("Staff Added Successfully");
 
                 }
@@ -118,7 +119,14 @@ public class Main {
         listButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String resultString= "";
+                Collections.sort(staffList);
+                String resultListString = String.join(", ",staffList);
+
+                for(int i=0;i<staffList.size();i++){
+                    System.out.println(resultListString);
+                }
+
+                resultField.setText(resultListString);
 
             }
         });
@@ -126,7 +134,7 @@ public class Main {
 
         return createFormPanel;
 
-    }
+    }*/
 
 
 
